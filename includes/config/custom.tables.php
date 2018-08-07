@@ -21,6 +21,21 @@ define('_TBL_MI_', 'MEMB_INFO');
 	define('_CLMN_MEMBNAME_', 'memb_name');
 	define('_CLMN_CTLCODE_', 'ctl1_code');
 
+define('VI_CURR_INFO');
+	define('ends_days');
+	define('chek_code');
+	define('used_time');
+	define('_CLMN_USERNM_', 'memb___id');
+	define('_CLMN_MEMBNAME_', 'memb_name');
+	define('_CLMN_MEMBID_', 'memb_guid');
+	define('_CLMN_SNONUMBER_', 'sno__numb');
+	define('Bill_Section');
+	define('Bill_Value');
+	define('Bill_Hour');
+	define('Surplus_Point');
+	define('Surplus_Minute');
+	define('Increase_Days');
+
 define('_TBL_MS_', 'MEMB_STAT');
 	define('_CLMN_CONNSTAT_', 'ConnectStat');
 	define('_CLMN_MS_MEMBID_', 'memb___id');
