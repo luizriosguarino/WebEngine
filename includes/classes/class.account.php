@@ -67,10 +67,19 @@ class Account extends common {
 		} else {
 			$query = "INSERT INTO "._TBL_MI_." ("._CLMN_USERNM_.", "._CLMN_PASSWD_.", "._CLMN_MEMBNAME_.", "._CLMN_SNONUMBER_.", "._CLMN_EMAIL_.", "._CLMN_BLOCCODE_.", "._CLMN_CTLCODE_.") VALUES (:username, :password, :name, :serial, :email, 0, 0)";
 		}
+		# query for VI_CURR_INFO (Compatible with DarksTeam 97d+99i MuServer)
+		$data2 = array(
+			'username' => $username,
+			'name' => $username,
+			'serial' => $this->_defaultAccountSerial,
+		);
+		$query2 = "INSERT INTO VI_CURR_INFO (ends_days, chek_code, used_time, "._CLMN_USERNM_.", "._CLMN_MEMBNAME_.", "._CLMN_MEMBID_.", "._CLMN_SNONUMBER_.", Bill_Section, Bill_Value, Bill_Hour, Surplus_Point, Surplus_Minute, Increase_Days) VALUES (2005, 1, 1234, :username, :name, 1, :serial, 6, 3, 6, 6,'1905-06-26 00:00:00.000', 0)";
 		
 		# register account
 		$result = $this->db->query($query, $data);
 		if(!$result) throw new Exception(lang('error_22',true));
+		$result2 = $this->db->query($query2, $data2);
+		if(!$result2) throw new Exception('error_22',true);
 		
 		# send welcome email
 		if($regCfg['send_welcome_email']) {
@@ -407,6 +416,7 @@ class Account extends common {
 		} else {
 			$query = "INSERT INTO "._TBL_MI_." ("._CLMN_USERNM_.", "._CLMN_PASSWD_.", "._CLMN_MEMBNAME_.", "._CLMN_SNONUMBER_.", "._CLMN_EMAIL_.", "._CLMN_BLOCCODE_.", "._CLMN_CTLCODE_.") VALUES (:username, :password, :name, :serial, :email, 0, 0)";
 		}
+		
 		
 		# create account
 		$result = $this->db->query($query, $data);
